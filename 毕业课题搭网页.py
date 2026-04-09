@@ -30,7 +30,7 @@ st.title("心脏术后急性肾损伤严重程度风险预测系统")
 st.markdown("基于LightGBM机器学习模型，预测心脏术后AKI的严重程度分级")
 
 # ========== 4. 创建输入区（两栏布局） ==========
-left_col, right_col = st.columns([2, 1])
+left_col, right_col = st.columns([3, 2])
 
 with left_col:
     st.subheader("请输入患者临床特征")
