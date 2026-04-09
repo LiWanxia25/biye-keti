@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 
 # 加载模型和标准化器
-model = joblib.load('lgbm_model.pkl')
+model = joblib.load('model_lgbm.pkl')
 scaler = joblib.load('scaler.pkl')
 
 continuous_features = [
