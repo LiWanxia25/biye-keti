@@ -39,7 +39,7 @@ with left_col:
     PASP = st.number_input("肺动脉收缩压（PASP，mmHg）:", min_value=10.0, max_value=120.0, value=40.0, step=1.0, help="术前心脏超声测得的肺动脉收缩压")
     LVEDD = st.number_input("左心室舒张末期内径（LVEDD，mm）:", min_value=30.0, max_value=90.0, value=50.0, step=1.0, help="术前心脏超声测得的左心室舒张末期内径")
     CPB_duration = st.number_input("体外循环时间（CPB时间，min）:", min_value=0, max_value=300, value=90, step=5, help="术中体外循环持续时间")
-    Intro_qjssxs. = st.number_input("去甲肾上腺素剂量（μg/kg/min）:", min_value=0.0, max_value=2.0, value=0.10, step=0.01, format="%.2f", help="术中持续输注的去甲肾上腺素剂量")
+    Intro_qjssxs = st.number_input("去甲肾上腺素剂量（μg/kg/min）:", min_value=0.0, max_value=2.0, value=0.10, step=0.01, format="%.2f", help="术中持续输注的去甲肾上腺素剂量")
     # 分类变量输入
     ASA = st.selectbox("ASA分级:", options=list(asa_options.keys()), format_func=lambda x: asa_options[x], help="美国麻醉医师协会体格状态分级")
     LVAD_IABP = st.selectbox("术中是否使用心脏辅助装置:", options=list(device_options.keys()), format_func=lambda x: device_options[x], help="术中是否使用主动脉内球囊反搏（IABP）或左心室辅助装置（LVAD）")
