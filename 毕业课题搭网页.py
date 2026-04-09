@@ -2,7 +2,6 @@ import streamlit as st
 import joblib
 import numpy as np
 import pandas as pd
-from tensorflow.keras.models import load_model
 
 # 加载模型和标准化器
 model = joblib.load('lgbm_model.pkl')
