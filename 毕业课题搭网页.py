@@ -56,7 +56,7 @@ if predict_clicked:
         "PASP": PASP,
         "LVEDD": LVEDD,
         "CPB_duration": CPB_duration,
-        "Intro_qjssxs.": Intro_qjssxs.,
+        "Intro_qjssxs.": Intro_qjssxs,
         "ASA": ASA,
         "LVAD_IABP": LVAD_IABP
     }
