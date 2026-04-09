@@ -110,7 +110,7 @@ if predict_clicked:
         else:
             st.error(f"**预测结果：{predicted_label}**")
         
-        
+        st.caption("注：本预测结果仅供临床参考，具体诊疗决策请结合患者实际情况由专业医师判断。")
 # ========== 6. 页面底部说明 ==========
 st.markdown("---")
 st.caption("模型基于LightGBM算法构建，预测特征包括：PASP、LVEDD、去甲肾上腺素剂量、CPB时间、ASA分级及心脏辅助装置使用。")
