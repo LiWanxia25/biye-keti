@@ -26,7 +26,7 @@ all_feature_names = [
 
 
 # ========== 3. 页面标题 ==========
-st.title("心脏术后急性肾损伤严重程度风险预测系统")
+st.title("心脏术后急性肾损伤风险预测系统")
 st.markdown("基于LightGBM机器学习模型，预测心脏术后AKI的严重程度分级")
 
 # ========== 4. 创建输入区（两栏布局） ==========
@@ -94,6 +94,13 @@ if predict_clicked:
     # 5.7 显示结果
     with result_placeholder.container():
         st.subheader("预测结果")
+
+        # 显示详细概率
+        st.markdown("**各类别概率：**")
+        col1, col2, col3 = st.columns(3)
+        col1.metric("无AKI", f"{prob_no_aki:.1%}")
+        col2.metric("AKI 1期（轻度）", f"{prob_stage1:.1%}")
+        col3.metric("AKI 2/3期（中重度）", f"{prob_stage23:.1%}")
         
         # 显示预测类别
         if predicted_class == 0:
@@ -103,33 +110,7 @@ if predict_clicked:
         else:
             st.error(f"**预测结果：{predicted_label}**")
         
-        # 显示详细概率
-        st.markdown("**各类别概率：**")
-        col1, col2, col3 = st.columns(3)
-        col1.metric("无AKI", f"{prob_no_aki:.1%}")
-        col2.metric("AKI 1期（轻度）", f"{prob_stage1:.1%}")
-        col3.metric("AKI 2/3期（中重度）", f"{prob_stage23:.1%}")
         
-        # 显示风险分层
-        if risk_color == "error":
-            st.error(f"**风险等级：{risk_level}**")
-        elif risk_color == "warning":
-            st.warning(f"**风险等级：{risk_level}**")
-        else:
-            st.success(f"**风险等级：{risk_level}**")
-        
-        # 临床建议
-        st.markdown("---")
-        st.markdown("**临床建议：**")
-        if prob_stage23 >= 0.5:
-            st.markdown("- 该患者发生中重度AKI风险较高，建议加强围术期肾功能监测，优化血流动力学管理，避免使用肾毒性药物。")
-        elif prob_stage23 >= 0.3:
-            st.markdown("- 该患者存在一定AKI风险，建议密切监测肾功能指标，合理控制液体平衡。")
-        else:
-            st.markdown("- 该患者AKI风险较低，可按常规围术期管理方案进行。")
-        
-        st.caption("注：本预测结果仅供临床参考，具体诊疗决策请结合患者实际情况由专业医师判断。")
-
 # ========== 6. 页面底部说明 ==========
 st.markdown("---")
 st.caption("模型基于LightGBM算法构建，预测特征包括：PASP、LVEDD、去甲肾上腺素剂量、CPB时间、ASA分级及心脏辅助装置使用。")
