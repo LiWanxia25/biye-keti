@@ -27,7 +27,7 @@ all_feature_names = [
 
 # ========== 3. 页面标题 ==========
 st.title("心脏术后急性肾损伤风险预测系统")
-st.markdown("基于LightGBM机器学习模型，预测心脏术后AKI的严重程度分级")
+#st.markdown("基于LightGBM机器学习模型，预测心脏术后AKI的严重程度分级")
 
 # ========== 4. 创建输入区（两栏布局） ==========
 left_col, right_col = st.columns([1, 1])
